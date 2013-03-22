@@ -1,0 +1,14 @@
+{
+  "name": "boot",
+  "dependencies": {
+    "component/tip": "*",
+    "local": "*"
+  },
+  "local": [
+    "local"
+  ],
+  "coffee": [
+    "index"
+  ],
+  "scripts": []
+}

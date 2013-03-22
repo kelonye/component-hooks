@@ -1,0 +1,17 @@
+{
+  "name": "local",
+  "dependencies": {
+    "component/tip": "*"
+  },
+  "coffee": [
+    "index"
+  ],
+  "styl": [
+    "style"
+  ],
+  "jade": [
+    "template"
+  ],
+  "scripts": [],
+  "styles": []
+}
