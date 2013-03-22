@@ -1,17 +1,7 @@
 {
-  "name": "component-hooks",
+  "name": "hooks",
   "version": "0.0.1",
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/kelonye/component-hooks.git"
-  },
-  "keywords": [
-    "component",
-    "coffee"
-  ],
   "main": "lib/index.js",
-  "license": "MIT",
   "dependencies": {
     "nib": "*",
     "jade": "*",
@@ -25,5 +15,6 @@
     "mocha": "*",
     "should": "*",
     "supertest": "*"
-  }
+  },
+  "license": "MIT"
 }
