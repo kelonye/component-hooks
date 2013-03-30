@@ -26,9 +26,8 @@ module.exports = (req, res, next)->
   conf = require(cwd + '/component.json')
   builder.addLookup conf.paths
 
+  builder.copyFiles()
   builder.copyAssetsTo out
-
-  #builder.addScriptType 'coffee'
 
   builder.use styl
   builder.use jade
