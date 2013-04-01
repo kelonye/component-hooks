@@ -4,6 +4,7 @@ should = require 'should'
 request = require 'supertest'
 exec = require('child_process').exec
 
+# require app from example dir
 app = require '../example/server'
 app.set 'env','testing'
 
@@ -29,7 +30,6 @@ describe 'hooks', ->
         fs.readFile 'build/build.js', 'utf8', (err, js)->
           return done err if err
 
-          # coffee
           js.should.include 'boot/index.js'
           js.should.include 'local/index.js'
 

@@ -29,6 +29,9 @@ module.exports = (req, res, next)->
   builder.copyFiles()
   builder.copyAssetsTo out
 
+  builder.development()
+  builder.addSourceURLs()
+
   builder.use styl
   builder.use jade
   builder.use coffee
