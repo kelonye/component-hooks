@@ -1,7 +1,7 @@
 fs = require 'fs'
 path = require 'path'
 Batch = require 'batch'
-init = require('./utils').init
+addConfProperty = require('./utils').addConfProperty
 coffeescript = require 'coffee-script'
 
 module.exports = (builder)->
@@ -15,7 +15,7 @@ module.exports = (builder)->
 
     if not pkg.conf.scripts
       batch.push (done) ->
-        init pkg, 'scripts'
+        addConfProperty pkg, 'scripts'
         done()
 
     scripts.forEach (file) ->

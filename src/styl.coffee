@@ -3,7 +3,7 @@ nib = require 'nib'
 path = require 'path'
 Batch = require 'batch'
 stylus = require 'stylus'
-init = require('./utils').init
+addConfProperty = require('./utils').addConfProperty
 
 module.exports = (builder)->
 
@@ -17,7 +17,7 @@ module.exports = (builder)->
     if not pkg.conf.styles
       batch.push (done) ->
         # add empty styles []
-        init pkg, 'styles'
+        addConfProperty pkg, 'styles'
         done()
 
     styles.forEach (file) ->

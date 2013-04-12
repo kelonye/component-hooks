@@ -3,7 +3,7 @@ var fs = require('fs')
 , Batch = require('batch')
 , Builder = require('component/node_modules/component-builder');
 
-exports.init = function(pkg, type) {
+exports.addConfProperty = function(pkg, type) {
   pkg.conf[type] = [];
   fs.writeFileSync(
     path.resolve(pkg.dir + '/component.json'),

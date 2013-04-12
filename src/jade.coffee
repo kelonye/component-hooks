@@ -2,7 +2,7 @@ fs = require 'fs'
 jade = require 'jade'
 path = require 'path'
 Batch = require 'batch'
-init = require('./utils').init
+addConfProperty = require('./utils').addConfProperty
 str2js = require 'string-to-js'
 
 module.exports = (builder)->
@@ -16,7 +16,7 @@ module.exports = (builder)->
 
     if not pkg.conf.scripts
       batch.push (done) ->
-        init pkg, 'scripts'
+        addConfProperty pkg, 'scripts'
         done()
 
     templates.forEach (file) ->
