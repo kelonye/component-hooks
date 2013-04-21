@@ -4,7 +4,10 @@ Install
 
     $ npm install git+https://github.com/kelonye/hooks.git
 
-component.json (local component)
+Usage
+---
+
+### component.json (local component)
 ---
 
 ```
@@ -24,8 +27,7 @@ component.json (local component)
 }
 ```
 
-app
----
+### server.coffee
 
 ```
 hooks = require 'hooks'
@@ -40,3 +42,8 @@ port = process.env.PORT || 3000
 app.listen port, ->
   console.log "http://dev:#{port}"
 ```
+
+Example
+---
+
+    $ make example

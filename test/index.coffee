@@ -4,9 +4,7 @@ should = require 'should'
 request = require 'supertest'
 exec = require('child_process').exec
 
-# require app from example dir
 app = require '../example/server'
-app.set 'env','testing'
 
 describe 'hooks', ->
 
