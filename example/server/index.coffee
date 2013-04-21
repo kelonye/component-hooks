@@ -9,7 +9,13 @@ app.engine 'jade', require('../../node_modules/jade').__express
 app.set 'views', __dirname + '/views'
 app.set 'view engine', 'jade'
 
-app.get '/', hooks, (req, res) ->
+app.use '/', (req, res, next)->
+  req.program = {}
+  req.program.dev = true
+  next()
+app.use '/', hooks
+
+app.get '/', (req, res) ->
   res.render 'index'
 
 if not module.parent

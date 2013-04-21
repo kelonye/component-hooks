@@ -16,9 +16,13 @@ Builder::buildAliases = require('./utils').buildAliases
 
 module.exports = (req, res, next)->
 
-  out = 'build'
+  # exec = require('child_process').exec
+  # exec('component build', next)
 
-  mkdir.sync out
+  req.program = {} if not req.program
+  req.program.out ?= 'build'
+
+  mkdir.sync req.program.out
 
   cwd = process.cwd()
   builder = new Builder(cwd)
@@ -26,18 +30,24 @@ module.exports = (req, res, next)->
   conf = require(cwd + '/component.json')
   builder.addLookup conf.paths
 
-  builder.copyFiles()
-  builder.copyAssetsTo out
+  builder.copyAssetsTo req.program.out
 
-  builder.development()
-  builder.addSourceURLs()
+  if req.program.dev
+    builder.prefixUrls('./')
+    builder.development()
+    builder.addSourceURLs()
 
   builder.use styl
   builder.use jade
   builder.use coffee
 
+  req.program.name ?= 'build'
+
+  jsPath = path.join(req.program.out, req.program.name + '.js')
+  cssPath = path.join(req.program.out, req.program.name + '.css')
+
   builder.build (err, res)->
     utils.fatal err.message if err
-    write 'build/build.js', (res.require + res.js)
-    write 'build/build.css', res.css.trim()
+    write jsPath, (res.require + res.js)
+    write cssPath, res.css.trim()
     next()
