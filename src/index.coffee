@@ -14,7 +14,7 @@ write = fs.writeFileSync
 
 Builder::buildAliases = require('./utils').buildAliases
 
-module.exports = (req, res, next)->
+module.exports = (req, rez, next)->
 
   # exec = require('child_process').exec
   # exec('component build', next)
