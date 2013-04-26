@@ -9,12 +9,12 @@ module.exports = (builder)->
 
   builder.hook 'before scripts', (pkg, fn) ->
 
-    templates = pkg.conf.jade
+    templates = pkg.config.jade
     return fn() unless templates
 
     batch = new Batch()
 
-    if not pkg.conf.scripts
+    if not pkg.config.scripts
       batch.push (done) ->
         addConfProperty pkg, 'scripts'
         done()

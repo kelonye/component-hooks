@@ -8,12 +8,12 @@ module.exports = (builder)->
 
   builder.hook 'before scripts', (pkg, fn) ->
 
-    scripts = pkg.conf.coffee
+    scripts = pkg.config.coffee
     return fn() unless scripts
 
     batch = new Batch()
 
-    if not pkg.conf.scripts
+    if not pkg.config.scripts
       batch.push (done) ->
         addConfProperty pkg, 'scripts'
         done()

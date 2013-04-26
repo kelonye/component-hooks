@@ -9,12 +9,12 @@ module.exports = (builder)->
 
   builder.hook 'before styles', (pkg, fn) ->
 
-    styles = pkg.conf.styl
+    styles = pkg.config.styl
     return fn() unless styles
 
     batch = new Batch()
     
-    if not pkg.conf.styles
+    if not pkg.config.styles
       batch.push (done) ->
         # add empty styles []
         addConfProperty pkg, 'styles'
