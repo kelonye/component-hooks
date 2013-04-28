@@ -27,7 +27,8 @@ module.exports = (builder)->
         jsfile =  "#{file}.js"
 
         str = fs.readFileSync jadefile, 'utf8'
-        js = jade.compile str
+        js = jade.compile str,
+          filename: jadefile
 
         pkg.addFile 'scripts', jsfile, str2js(js())
 
