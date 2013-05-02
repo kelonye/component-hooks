@@ -2,7 +2,7 @@
 Install
 ---
 
-    $ npm install git+https://github.com/kelonye/hooks.git
+    $ npm install hooks
 
 Usage
 ---
