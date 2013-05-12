@@ -2,7 +2,7 @@
 Install
 ---
 
-    $ npm install hooks
+    $ npm install component-hooks
 
 Usage
 ---
@@ -30,7 +30,7 @@ Usage
 ### server.coffee
 
 ```
-hooks = require 'hooks'
+hooks = require 'component-hooks'
 
 express = require 'express'
 app = express()
