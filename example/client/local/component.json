@@ -13,5 +13,7 @@
     "template"
   ],
   "scripts": [],
-  "styles": []
+  "styles": [
+    "style.css"
+  ]
 }

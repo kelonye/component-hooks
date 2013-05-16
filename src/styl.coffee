@@ -1,13 +1,40 @@
 fs = require 'fs'
-#nib = require 'nib'
 path = require 'path'
-Batch = require 'batch'
-#stylus = require 'stylus'
 Style = require 'styl'
+Batch = require 'batch'
 addConfProperty = require('./utils').addConfProperty
 
 module.exports = (builder)->
 
+  # css
+  builder.hook 'before styles', (pkg, fn) ->
+
+    styles = pkg.config.styles
+    return fn() unless styles
+
+    batch = new Batch()
+    
+    styles.forEach (file) ->
+
+      batch.push (done) ->
+
+        cssfile = pkg.path(file)
+
+        styl = fs.readFileSync cssfile, 'utf8'
+
+        vendors = 'o,ms,moz,webkit'.split(',').map (v)->
+          '-' + v + '-'
+
+        style = new Style(styl)
+        style.vendors(vendors)
+        css = style.toString()
+
+        pkg.addFile 'styles', cssfile, css
+        done()
+
+    batch.end fn
+
+  # styl
   builder.hook 'before styles', (pkg, fn) ->
 
     styles = pkg.config.styl
@@ -15,12 +42,6 @@ module.exports = (builder)->
 
     batch = new Batch()
     
-    if not pkg.config.styles
-      batch.push (done) ->
-        # add empty styles []
-        addConfProperty pkg, 'styles'
-        done()
-
     styles.forEach (file) ->
 
       batch.push (done) ->

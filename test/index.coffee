@@ -75,7 +75,22 @@ describe 'hooks', ->
         fs.readFile 'build/build.css', 'utf8', (err, css)->
           return done err if err
           
-          css.should.include 'padding: 5px;'
-          css.should.include 'color: #000'
+          css.should.include '-o-linear-gradient(top, black, white)'
+          
+          done()
+
+
+  it 'should work on css', (done)->
+
+    request(app)
+      .get('/')
+      .expect(200)
+      .end (err, res)->
+        return done err if err
+
+        fs.readFile 'build/build.css', 'utf8', (err, css)->
+          return done err if err
+          
+          css.should.include '-o-transition: 200ms cubic-bezier(0.680, -0.550, 0.265, 1.550)'
           
           done()
