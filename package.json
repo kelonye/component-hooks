@@ -3,10 +3,9 @@
   "version": "0.0.1",
   "main": "lib/index.js",
   "dependencies": {
-    "nib": "*",
     "jade": "*",
     "batch": "*",
-    "stylus": "*",
+    "styl": "*",
     "component": "*",
     "string-to-js": "*",
     "coffee-script": "*"

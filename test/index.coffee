@@ -75,6 +75,7 @@ describe 'hooks', ->
         fs.readFile 'build/build.css', 'utf8', (err, css)->
           return done err if err
           
-          css.should.include 'color: #000;'
+          css.should.include 'padding: 5px;'
+          css.should.include 'color: #000'
           
           done()

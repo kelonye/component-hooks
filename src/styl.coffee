@@ -1,8 +1,9 @@
 fs = require 'fs'
-nib = require 'nib'
+#nib = require 'nib'
 path = require 'path'
 Batch = require 'batch'
-stylus = require 'stylus'
+#stylus = require 'stylus'
+Style = require 'styl'
 addConfProperty = require('./utils').addConfProperty
 
 module.exports = (builder)->
@@ -28,12 +29,18 @@ module.exports = (builder)->
         cssfile =  "#{file}.css"
 
         styl = fs.readFileSync stylfile, 'utf8'
-        stylus(styl)
-          .set('include css', true)
-          .set('filename', stylfile)
-          .use(nib())
-          .render (err, css)->
-            pkg.addFile 'styles', cssfile, css
-            done()
+
+        vendors = 'o,ms,moz,webkit'.split(',').map (v)->
+          '-' + v + '-'
+
+        opts = 
+          whitespace: true
+        
+        style = new Style(styl, opts)
+        style.vendors(vendors)
+        css = style.toString()
+
+        pkg.addFile 'styles', cssfile, css
+        done()
 
     batch.end fn
