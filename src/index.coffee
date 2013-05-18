@@ -20,7 +20,8 @@ module.exports = (req, rez, next)->
   # exec('component build', next)
 
   req.program = {} if not req.program
-  req.program.out ?= 'build'
+  req.program.out ?= 'public'
+  req.program.name ?= 'public'
 
   mkdir.sync req.program.out
 

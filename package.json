@@ -3,9 +3,9 @@
   "version": "0.0.2",
   "main": "lib/index.js",
   "dependencies": {
+    "styl": "*",
     "jade": "*",
     "batch": "*",
-    "styl": "*",
     "component": "*",
     "string-to-js": "*",
     "coffee-script": "*"

@@ -25,7 +25,7 @@ describe 'hooks', ->
       .end (err, res)->
         return done err if err
 
-        fs.readFile 'build/build.js', 'utf8', (err, js)->
+        fs.readFile 'public/public.js', 'utf8', (err, js)->
           return done err if err
 
           js.should.include 'boot/index.js'
@@ -41,7 +41,7 @@ describe 'hooks', ->
       .end (err, res)->
         return done err if err
 
-        fs.readFile 'build/build.js', 'utf8', (err, js)->
+        fs.readFile 'public/public.js', 'utf8', (err, js)->
           return done err if err
 
           js.should.include 'require.alias("local/index.js", "boot/deps/local/index.js")'
@@ -57,7 +57,7 @@ describe 'hooks', ->
       .end (err, res)->
         return done err if err
 
-        fs.readFile 'build/build.js', 'utf8', (err, js)->
+        fs.readFile 'public/public.js', 'utf8', (err, js)->
           return done err if err
 
           js.should.include 'local/template.js'
@@ -72,7 +72,7 @@ describe 'hooks', ->
       .end (err, res)->
         return done err if err
 
-        fs.readFile 'build/build.css', 'utf8', (err, css)->
+        fs.readFile 'public/public.css', 'utf8', (err, css)->
           return done err if err
           
           css.should.include '-o-linear-gradient(top, black, white)'
@@ -88,7 +88,7 @@ describe 'hooks', ->
       .end (err, res)->
         return done err if err
 
-        fs.readFile 'build/build.css', 'utf8', (err, css)->
+        fs.readFile 'public/public.css', 'utf8', (err, css)->
           return done err if err
           
           css.should.include '-o-transition: 200ms cubic-bezier(0.680, -0.550, 0.265, 1.550)'
