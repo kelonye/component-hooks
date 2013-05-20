@@ -19,7 +19,8 @@ module.exports = (req, rez, next)->
   # exec = require('child_process').exec
   # exec('component build', next)
 
-  req.program = {} if not req.program
+  req ?= {}
+  req.program ?= {}
   req.program.out ?= 'public'
   req.program.name ?= 'public'
 
