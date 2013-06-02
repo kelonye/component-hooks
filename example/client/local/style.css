@@ -1,3 +1,7 @@
+/*@font-face {
+  font-family: 'icomoon';
+  src:url('../fonts//icomoon.eot');
+}*/
 body {
   transition: 200ms ease-in-out-back;
 }
