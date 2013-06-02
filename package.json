@@ -6,6 +6,7 @@
     "styl": "*",
     "jade": "*",
     "batch": "*",
+    "uglify-js": "*",
     "component": "*",
     "string-to-js": "*",
     "coffee-script": "*"
