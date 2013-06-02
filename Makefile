@@ -1,26 +1,15 @@
-SRC = $(shell find src -name "*.coffee" -type f)
-LIB = $(SRC:src/%.coffee=lib/%.js)
+LIB = $(shell find lib -type f)
 
-test: node_modules lib lib/utils.js $(LIB)
+test: node_modules $(LIB)
 	@mocha --compilers coffee:coffee-script -R dot
-
-example: example/ node_modules
-	@cd $< && ../node_modules/.bin/coffee server
 
 node_modules:
 	@npm install
 
-lib:
-	@mkdir -p lib
-
-lib/%.js: src/%.coffee
-	coffee -bcj $@ $<
-
-lib/utils.js: src/utils.js
-	@rm -f $@
-	@cp $< $@
+example/: node_modules
+	@cd $@ && ../node_modules/.bin/coffee server/
 
 clean:
-	@rm -rf lib
+	@rm -rf example/public
 
-.PHONY: clean example test
+.PHONY: clean example/ test

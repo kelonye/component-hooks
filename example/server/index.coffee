@@ -1,11 +1,11 @@
-hooks = require '../../src'
+hooks = require '../../lib'
 
 express = require 'express'
 app = module.exports = express()
 
 app.use express.favicon()
 app.use express.cookieParser()
-app.use express.static "#{__dirname}/../build"
+app.use express.static "#{__dirname}/../public"
 app.engine 'jade', require('../../node_modules/jade').__express
 app.set 'views', __dirname + '/views'
 app.set 'view engine', 'jade'

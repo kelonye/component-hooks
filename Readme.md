@@ -23,27 +23,37 @@ Usage
     "index",
     "collections",
     "views"
+  ],
+  "scripts": [
+    "other-script.js"
+  ],
+  "styles": [
+    "other-style.css"
   ]
+  ...
 }
 ```
 
-### server.coffee
+### server.js
 
 ```
-hooks = require 'component-hooks'
+var hooks = require('component-hooks')
+  , express = require('express');
 
-express = require 'express'
-app = express()
+app = express();
 
-app.get '/', hooks, (req, res) ->
-  res.render 'index'
+app.get('/', hooks, function(req, res){
+  res.render('index');
+});
+ 
+app.listen(3000, function(err){
+  if (err) throw err
+  console.log('http://dev:3000');
+});
 
-port = process.env.PORT || 3000
-app.listen port, ->
-  console.log "http://dev:#{port}"
 ```
 
 Example
 ---
 
-    $ make example
+    $ make example/

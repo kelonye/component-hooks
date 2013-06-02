@@ -1,8 +1,9 @@
 !!!5
 html
   head
+    link(href='/public.css', rel='stylesheet', media='screen')
   
   body
-    script(src='build.js')
+    script(src='/public.js')
     :coffeescript
       require 'boot'
