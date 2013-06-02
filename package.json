@@ -7,6 +7,7 @@
     "jade": "*",
     "batch": "*",
     "uglify-js": "*",
+    "clean-css": "*",
     "component": "*",
     "string-to-js": "*",
     "coffee-script": "*"
