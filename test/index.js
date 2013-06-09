@@ -19,9 +19,9 @@ describe('hooks', function() {
       .get('/')
       .expect(200)
       .end(function(err, res) {
-        if (err) done(err)
+        if (err) return done(err)
         fs.readFile('public/public.js', 'utf8', function(err, js) {
-          if (err) done(err)
+          if (err) return done(err)
           js.should.include('boot/index.js');
           js.should.include('local/index.js');
           done();
@@ -35,7 +35,7 @@ describe('hooks', function() {
       .end(function(err, res) {
         if (err) return done(err)
         fs.readFile('public/public.js', 'utf8', function(err, js) {
-          if (err) done(err)
+          if (err) return done(err)
           js.should.include('require.alias("local/index.js", "boot/deps/local/index.js")');
           js.should.include('require.alias("local/index.js", "boot/deps/local/index.js")');
           done();
@@ -47,9 +47,9 @@ describe('hooks', function() {
       .get('/')
       .expect(200)
       .end(function(err, res) {
-        if (err) done(err)
+        if (err) return done(err)
         fs.readFile('public/public.js', 'utf8', function(err, js) {
-          if (err) done(err)
+          if (err) return done(err)
           js.should.include('local/template.js');
           done();
         });
@@ -60,9 +60,9 @@ describe('hooks', function() {
       .get('/')
       .expect(200)
       .end(function(err, res) {
-        if (err) done(err)
+        if (err) return done(err)
         fs.readFile('public/public.css', 'utf8', function(err, css) {
-          if (err) done(err)
+          if (err) return done(err)
           css.should.include('-o-linear-gradient(top, #000000, #000100)');
           done();
         });
@@ -73,9 +73,9 @@ describe('hooks', function() {
       .get('/')
       .expect(200)
       .end(function(err, res) {
-        if (err) done(err)
+        if (err) return done(err)
         fs.readFile('public/public.css', 'utf8', function(err, css) {
-          if (err) done(err)
+          if (err) return done(err)
           css.should.include('-o-linear-gradient(top, #000000, #000200)');
           done();
         });
@@ -86,9 +86,10 @@ describe('hooks', function() {
       .get('/')
       .expect(200)
       .end(function(err, res) {
-        if (err) done(err)
+        if (err) return done(err)
         fs.readFile('public/public.css', 'utf8', function(err, css) {
-          if (err) done(err)
+          if (err) return done(err)
+          //css.should.include('-o-linear-gradient(top, #000000, #000300)');
           css.should.include('linear-gradient(top, #000000, #000300)');
           done();
         });
