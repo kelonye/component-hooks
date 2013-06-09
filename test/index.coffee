@@ -64,22 +64,6 @@ describe 'hooks', ->
 
           done()
 
-  it 'should compile styl', (done)->
-
-    request(app)
-      .get('/')
-      .expect(200)
-      .end (err, res)->
-        return done err if err
-
-        fs.readFile 'public/public.css', 'utf8', (err, css)->
-          return done err if err
-          
-          css.should.include '-o-linear-gradient(top, black, white)'
-          
-          done()
-
-
   it 'should work on css', (done)->
 
     request(app)
@@ -91,6 +75,39 @@ describe 'hooks', ->
         fs.readFile 'public/public.css', 'utf8', (err, css)->
           return done err if err
           
-          css.should.include '-o-transition: 200ms cubic-bezier(0.680, -0.550, 0.265, 1.550)'
+          css.should.include '-o-linear-gradient(top, #000000, #000100)'
+          
+          done()
+
+
+  it 'should compile styl', (done)->
+
+    request(app)
+      .get('/')
+      .expect(200)
+      .end (err, res)->
+        return done err if err
+
+        fs.readFile 'public/public.css', 'utf8', (err, css)->
+          return done err if err
+          
+          css.should.include '-o-linear-gradient(top, #000000, #000200)'
+          
+          done()
+
+
+  it 'should compile less', (done)->
+
+    request(app)
+      .get('/')
+      .expect(200)
+      .end (err, res)->
+        return done err if err
+
+        fs.readFile 'public/public.css', 'utf8', (err, css)->
+          return done err if err
+          
+          #css.should.include '-o-linear-gradient(top, #000000, #000300)'
+          css.should.include 'linear-gradient(top, #000000, #000300)'
           
           done()

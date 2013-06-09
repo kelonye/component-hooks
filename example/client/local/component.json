@@ -6,14 +6,17 @@
   "coffee": [
     "index"
   ],
+  "less": [
+    "less"
+  ],
   "styl": [
-    "style"
+    "styl"
   ],
   "jade": [
     "template"
   ],
   "scripts": [],
   "styles": [
-    "style.css"
+    "css.css"
   ]
 }
