@@ -1,7 +1,5 @@
-LIB = $(shell find lib -type f)
-
-test: node_modules $(LIB)
-	@mocha --compilers coffee:coffee-script -R dot
+test: node_modules
+	@mocha -R dot
 
 node_modules:
 	@npm install
