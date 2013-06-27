@@ -1,11 +1,14 @@
 test: node_modules
 	@mocha -R dot
 
+publish:
+	@npm publish
+
 node_modules:
 	@npm install
 
 example/: node_modules
-	@cd $@ && ../node_modules/.bin/coffee server/
+	@cd $@ && node server/
 
 clean:
 	@rm -rf example/public
