@@ -9,7 +9,7 @@
     "batch": "*",
     "uglify-js": "*",
     "clean-css": "*",
-    "component": "0.16.4",
+    "component": "*",
     "string-to-js": "*",
     "coffee-script": "*"
   },
