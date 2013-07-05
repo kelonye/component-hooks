@@ -13,7 +13,10 @@
     "styl"
   ],
   "jade": [
-    "template"
+    "jade"
+  ],
+  "html": [
+    "html"
   ],
   "scripts": [],
   "styles": [
