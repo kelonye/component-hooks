@@ -1,9 +1,8 @@
-var log = console.log
-  , fs = require('fs')
-  , should = require('should')
-  , request = require('supertest')
-  , exec = require('child_process').exec
-  , app = require('../example/server');
+var fs = require('fs');
+var should = require('should');
+var request = require('supertest');
+var exec = require('child_process').exec;
+var app = require('../example/server');
 
 describe('hooks', function() {
   beforeEach(function(done) {
@@ -42,7 +41,7 @@ describe('hooks', function() {
         });
       });
   });
-  it('should compile templates', function(done) {
+  it('should add html templates', function(done) {
     request(app)
       .get('/')
       .expect(200)
@@ -50,7 +49,20 @@ describe('hooks', function() {
         if (err) return done(err)
         fs.readFile('public/public.js', 'utf8', function(err, js) {
           if (err) return done(err)
-          js.should.include('local/template.js');
+          js.should.include('local/html.js');
+          done();
+        });
+    });
+  });
+  it('should compile jade templates', function(done) {
+    request(app)
+      .get('/')
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err)
+        fs.readFile('public/public.js', 'utf8', function(err, js) {
+          if (err) return done(err)
+          js.should.include('local/jade.js');
           done();
         });
     });
