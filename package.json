@@ -3,22 +3,22 @@
   "version": "0.1.6",
   "main": "lib/index.js",
   "dependencies": {
-    "less": "*",
-    "styl": "*",
-    "jade": "*",
-    "batch": "*",
-    "uglify-js": "*",
-    "clean-css": "*",
+    "less": "1.5.0",
+    "styl": "0.2.6",
+    "jade": "0.35.0",
+    "batch": "0.5.0",
+    "uglify-js": "2.4.3",
+    "clean-css": "2.0.1",
     "component": "0.16.4",
-    "string-to-js": "*",
-    "coffee-script": "*",
-    "rework-variant": "*"
+    "string-to-js": "0.0.1",
+    "coffee-script": "1.6.3",
+    "rework-variant": "0.2.2"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*",
-    "express": "*",
-    "supertest": "*"
+    "mocha": "1.14.0",
+    "should": "2.1.0",
+    "express": "3.4.4",
+    "supertest": "0.8.1"
   },
   "license": "MIT"
 }
