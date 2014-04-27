@@ -1,24 +1,35 @@
-var hooks = require('../../lib')
-  , express = require('express')
-  , app = module.exports = express();
+/**
+  * Module dependencies
+  */
+var builder = require('../../lib');
+var express = require('express');
+var path = require('path');
+
+// app
+
+var app = module.exports = express();
+
+// settings
+
+app.engine('jade', require('../../node_modules/jade').__express);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+
+// middleware
 
 app.use(express.favicon());
 app.use(express.cookieParser());
 app.use(express.static(__dirname + '/../public'));
-app.engine('jade', require('../../node_modules/jade').__express);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
-app.use('/', function(req, res, next) {
-  req.program = {};
-  req.program.dev = true;
-  next();
-});
-
-app.use('/', hooks);
-
 app.get('/', function(req, res) {
-  res.render('index');
+  builder(path.join(__dirname+'/../'))
+    .dev()
+    .end(function(err){
+      if (err) return res.send(500, err.message);
+      res.render('index');
+    });
 });
+
+// bind
 
 if (!module.parent) {
   port = process.env.PORT || 3000;

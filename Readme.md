@@ -37,23 +37,27 @@ Usage
 ### server.js
 
 ```
-var hooks = require('component-hooks')
-  , express = require('express');
+var builder = require('component-hooks');
+var express = require('express');
 
-app = express();
+var app = express();
 
-app.get('/', hooks, function(req, res){
-  res.render('index');
+app.get('/', function(req, res){
+
+  builder(__dirname)
+    .dev()
+    .end(function(err){
+      if (err) return res.send(500, err.message);
+      res.render('index');
+    });
+
 });
  
-app.listen(3000, function(err){
-  if (err) throw err
-  console.log('http://dev:3000');
-});
+app.listen(3000);
 
 ```
 
 Example
 ---
 
-    $ make example/
+    $ make example
