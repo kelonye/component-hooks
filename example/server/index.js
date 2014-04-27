@@ -23,6 +23,7 @@ app.use(express.static(__dirname + '/../public'));
 app.get('/', function(req, res) {
   builder(path.join(__dirname+'/../'))
     .dev()
+    .log()
     .end(function(err){
       if (err) return res.send(500, err.message);
       res.render('index');
