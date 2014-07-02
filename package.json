@@ -1,10 +1,10 @@
 {
   "name": "component-hooks",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "lib/index.js",
   "dependencies": {
     "less": "1.5.0",
-    "styl": "0.2.6",
+    "styl": "0.2.7",
     "jade": "0.35.0",
     "batch": "0.5.0",
     "uglify-js": "2.4.3",
