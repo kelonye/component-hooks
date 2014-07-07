@@ -25,8 +25,10 @@ app.get('/', function(req, res) {
     .dev()
     .log()
     .prefix('/public')
+    .styl('css')
+    .styl('less')
     .end(function(err){
-      if (err) return res.send(500, err.message);
+      if (err) return res.send(500, err.stack);
       res.render('index');
     });
 });
