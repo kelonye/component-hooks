@@ -1,18 +1,18 @@
 {
   "name": "component-hooks",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "main": "lib/index.js",
   "dependencies": {
-    "less": "1.5.0",
-    "styl": "0.2.7",
-    "jade": "0.35.0",
     "batch": "0.5.0",
-    "uglify-js": "2.4.3",
     "clean-css": "2.0.1",
-    "string-to-js": "0.0.1",
     "coffee-script": "1.6.3",
+    "component": "0.19.9",
+    "jade": "0.35.0",
+    "less": "1.5.0",
     "rework-variant": "0.2.2",
-    "component": "0.19.9"
+    "string-to-js": "0.0.1",
+    "styl": "0.2.7",
+    "uglify-js": "^2.4.16"
   },
   "devDependencies": {
     "mocha": "1.14.0",
