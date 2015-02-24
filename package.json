@@ -1,6 +1,6 @@
 {
   "name": "component-hooks",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "main": "lib/index.js",
   "dependencies": {
     "batch": "0.5.0",
@@ -12,7 +12,7 @@
     "rework-variant": "0.2.2",
     "string-to-js": "0.0.1",
     "styl": "0.2.7",
-    "uglify-js": "^2.4.16"
+    "uglify-js": "2.4.16"
   },
   "devDependencies": {
     "mocha": "1.14.0",
