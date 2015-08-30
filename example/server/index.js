@@ -4,6 +4,7 @@
 var builder = require('../../lib');
 var express = require('express');
 var path = require('path');
+var debug = require('debug')('app:server');
 
 // app
 
@@ -38,6 +39,6 @@ app.get('/', function(req, res) {
 if (!module.parent) {
   port = process.env.PORT || 3000;
   app.listen(port, function() {
-    console.log("http://dev:" + port);
+    debug("listening on port " + port);
   });
 }

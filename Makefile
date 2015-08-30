@@ -5,7 +5,7 @@ node_modules:
 	@npm install
 
 example: node_modules
-	@cd $@ && node server
+	@cd $@ && DEBUG=builder:*,app* node server
 
 clean:
 	@rm -rf example/public
