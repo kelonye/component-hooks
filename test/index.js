@@ -11,9 +11,9 @@ describe('hooks', function() {
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err)
-        fs.readFile('example/public/public.js', 'utf8', function(err, js) {
+        fs.readFile('example/public/vanilla.js', 'utf8', function(err, js) {
           if (err) return done(err)
-          js.should.include('boot/index.js');
+          js.should.include('app/index.js');
           js.should.include('local/index.js');
           done();
         });
@@ -25,10 +25,10 @@ describe('hooks', function() {
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err)
-        fs.readFile('example/public/public.js', 'utf8', function(err, js) {
+        fs.readFile('example/public/vanilla.js', 'utf8', function(err, js) {
           if (err) return done(err)
-          js.should.include('require.alias("local/index.js", "boot/deps/local/index.js")');
-          js.should.include('require.alias("local/index.js", "boot/deps/local/index.js")');
+          js.should.include('require.alias("local/index.js", "app/deps/local/index.js")');
+          js.should.include('require.alias("local/index.js", "app/deps/local/index.js")');
           done();
         });
       });
@@ -39,7 +39,7 @@ describe('hooks', function() {
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err)
-        fs.readFile('example/public/public.js', 'utf8', function(err, js) {
+        fs.readFile('example/public/vanilla.js', 'utf8', function(err, js) {
           if (err) return done(err)
           js.should.include('local/html.js');
           done();
@@ -52,9 +52,22 @@ describe('hooks', function() {
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err)
-        fs.readFile('example/public/public.js', 'utf8', function(err, js) {
+        fs.readFile('example/public/vanilla.js', 'utf8', function(err, js) {
           if (err) return done(err)
           js.should.include('local/jade.js');
+          done();
+        });
+    });
+  });
+  it('should compile ember jhbs templates', function(done) {
+    request(app)
+      .get('/')
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err)
+        fs.readFile('example/public/vanilla.js', 'utf8', function(err, js) {
+          if (err) return done(err)
+          js.should.include('local/jhbs.js');
           done();
         });
     });
@@ -65,7 +78,7 @@ describe('hooks', function() {
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err)
-        fs.readFile('example/public/public.css', 'utf8', function(err, css) {
+        fs.readFile('example/public/vanilla.css', 'utf8', function(err, css) {
           if (err) return done(err)
           css.should.include('-o-linear-gradient(top, #000000, #000100)');
           done();
@@ -78,7 +91,7 @@ describe('hooks', function() {
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err)
-        fs.readFile('example/public/public.css', 'utf8', function(err, css) {
+        fs.readFile('example/public/vanilla.css', 'utf8', function(err, css) {
           if (err) return done(err)
           css.should.include('-o-linear-gradient(top, #000000, #000200)');
           done();
@@ -91,7 +104,7 @@ describe('hooks', function() {
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err)
-        fs.readFile('example/public/public.css', 'utf8', function(err, css) {
+        fs.readFile('example/public/vanilla.css', 'utf8', function(err, css) {
           if (err) return done(err)
           //css.should.include('-o-linear-gradient(top, #000000, #000300)');
           css.should.include('linear-gradient(top, #000000, #000300)');
@@ -105,11 +118,11 @@ describe('hooks', function() {
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err)
-        fs.readFile('example/public/public.css', 'utf8', function(err, css) {
+        fs.readFile('example/public/vanilla.css', 'utf8', function(err, css) {
           if (err) return done(err)
-          css.should.include('.css-thumb {\n  background-image: url("/public/local/pic.jpg");');
-          css.should.include('.less-thumb {\n  background-image: url("/public/local/pic.jpg");');
-          css.should.include('.styl-thumb {\n  background-image: url("/public/local/pic.jpg");');
+          css.should.include('.css-thumb {\n  background-image: url("/public/local/./pic.jpg");');
+          css.should.include('.less-thumb {\n  background-image: url("/public/local/./pic.jpg");');
+          css.should.include('.styl-thumb {\n  background-image: url("/public/local/./pic.jpg");');
           done();
         });
     });

@@ -1,5 +1,5 @@
 {
-  "name": "boot",
+  "name": "app",
   "dependencies": {
     "component/tip": "*"
   },
@@ -8,6 +8,9 @@
   ],
   "coffee": [
     "index"
+  ],
+  "paths": [
+    ".."
   ],
   "scripts": []
 }

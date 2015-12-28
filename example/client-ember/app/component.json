@@ -1,0 +1,13 @@
+{
+  "name": "app",
+  "version": "2.3.0",
+  "dependencies":{
+    "kelonye/ember":"2.3.0"
+  },
+  "scripts":[
+    "index.js"
+  ],
+  "jhbs": [
+    "template"
+  ]
+}
