@@ -2,7 +2,9 @@ require('ember');
 
 App = Em.Application.create();
 
-Em.TEMPLATES.index = Em.Handlebars.template(eval(require('./template')));
+var t = eval(require('./template'));
+
+Em.TEMPLATES.index = Em.Handlebars.template(t);
 
 App.IndexRoute = Em.Route.extend({
   model: function(){

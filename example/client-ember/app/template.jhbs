@@ -1,1 +1,2 @@
-h1 {{model}}
+<button {{action 'toggleBottomDrawer'}}>Toggle bottom drawer</button>
+<button {{action 'toggleLeftDrawer'}}>Toggle left drawer</button>
