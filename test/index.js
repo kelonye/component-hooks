@@ -120,9 +120,9 @@ describe('hooks', function() {
         if (err) return done(err)
         fs.readFile('example/public/vanilla.css', 'utf8', function(err, css) {
           if (err) return done(err)
-          css.should.include('.css-thumb {\n  background-image: url("/public/local/./pic.jpg");');
-          css.should.include('.less-thumb {\n  background-image: url("/public/local/./pic.jpg");');
-          css.should.include('.styl-thumb {\n  background-image: url("/public/local/./pic.jpg");');
+          css.should.include('.css-thumb {\n  background-image: url("/public/local/pic.jpg");');
+          css.should.include('.less-thumb {\n  background-image: url("/public/local/pic.jpg");');
+          css.should.include('.styl-thumb {\n  background-image: url("/public/local/pic.jpg");');
           done();
         });
     });
