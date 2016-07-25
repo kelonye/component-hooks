@@ -12,6 +12,9 @@
   "styl": [
     "styl"
   ],
+  "scss": [
+    "scss"
+  ],
   "jade": [
     "jade"
   ],

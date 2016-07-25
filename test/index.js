@@ -112,6 +112,20 @@ describe('hooks', function() {
         });
     });
   });
+  it('should compile scss', function(done) {
+    request(app)
+      .get('/')
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err)
+        fs.readFile('example/public/vanilla.css', 'utf8', function(err, css) {
+          if (err) return done(err)
+          //css.should.include('-o-linear-gradient(top, #000000, #000300)');
+          css.should.include('linear-gradient(top, #000000, #000400)');
+          done();
+        });
+    });
+  });
   it('should add css url prefix', function(done) {
     request(app)
       .get('/')
