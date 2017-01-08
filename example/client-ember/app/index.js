@@ -8,6 +8,6 @@ Em.TEMPLATES.index = Em.HTMLBars.template(t);
 
 App.IndexRoute = Em.Route.extend({
   model: function(){
-    return 'Hello';
+    return 'Hello Ember';
   }
 });

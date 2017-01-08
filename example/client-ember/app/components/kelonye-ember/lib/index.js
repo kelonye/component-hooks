@@ -1,2 +1,2 @@
 window.jQuery = window.$ = require('jquery');
-require('./ember');
+window.Ember = window.Em = require('./ember');
